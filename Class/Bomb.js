@@ -1,37 +1,4 @@
-class Bomb{
-    constructor(x,y){
-        this.x = x;
-        this.y = y;
-        this.direction = [
-            [this.x - 1,this.y - 1],
-            [this.x    ,this.y - 1],
-            [this.x + 1,this.y - 1],
-            [this.x - 1,this.y    ],
-            [this.x + 1,this.y    ],
-            [this.x - 1,this.y + 1],
-            [this.x    ,this.y + 1],
-            [this.x + 1,this.y + 1]
-        ]
-    }
-
-
-
-    chooseCell(character1,character2){
-        var found = [];
-        for (var i in this.direction) {
-            var x = this.direction[i][0]
-            var y = this.direction[i][1]
-            
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == character1 || matrix[y][x] == character2) {
-                    found.push(this.direction[i])
-                }
-            }
-        }
-        return found;
-    }
-
-
+class Bomb extends LivingCreature{
 
     boom(){
         let zoh = this.chooseCell(2,3)
